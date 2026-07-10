@@ -40,17 +40,8 @@ namespace HotelBooking.Infrastructure.Repositories
 
         public async Task<BookingResponseDto>  AddBookingDetails(Booking bookingDetails)
         {
-            try
-            {
-                await dbContext.Bookings.AddAsync(bookingDetails);
-                await dbContext.SaveChangesAsync();
-              
-            }
-            catch(Exception ex)
-            {
-
-
-            }
+            await dbContext.Bookings.AddAsync(bookingDetails);
+            await dbContext.SaveChangesAsync();  
             return new BookingResponseDto
             {
                 BookingReference = bookingDetails.BookingReference,
