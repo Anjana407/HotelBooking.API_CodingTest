@@ -35,8 +35,7 @@ namespace HotelBooking.Infrastructure.Repositories
         {
             return !await dbContext.Bookings.AnyAsync(x =>
                 x.RoomId == roomId &&
-                checkIn >= x.CheckInDate &&
-                checkOut <= x.CheckOutDate);
+                 checkIn < x.CheckInDate && checkOut > x.CheckOutDate);
         }
 
         public async Task<BookingResponseDto>  AddBookingDetails(Booking bookingDetails)
